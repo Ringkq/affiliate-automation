@@ -1,12 +1,12 @@
 const axios = require('axios');
 
 /**
- * AI 文章生成器 - 使用 ChatGPT 生成高质量文章
+ * AI 文章生成器 - 使用 DeepSeek 生成高质量文章
  */
 class AIGenerator {
   constructor(apiKey) {
     this.apiKey = apiKey;
-    this.baseUrl = 'https://api.openai.com/v1/chat/completions';
+    this.baseUrl = 'https://api.deepseek.com/chat/completions';
   }
 
   /**
@@ -27,7 +27,7 @@ class AIGenerator {
       const response = await axios.post(
         this.baseUrl,
         {
-          model: 'gpt-4o-mini',
+          model: 'deepseek-chat',
           messages: [
             {
               role: 'system',
