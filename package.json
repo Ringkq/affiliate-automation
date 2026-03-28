@@ -1,0 +1,29 @@
+{
+  "name": "affiliate-automation",
+  "version": "1.0.0",
+  "description": "联盟营销自动化系统 - AI 生成文章、SEO 优化、自动发布、收入追踪",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "affiliate",
+    "marketing",
+    "automation",
+    "ai",
+    "content",
+    "seo"
+  ],
+  "author": "Ringkq",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.0.3",
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
+    "node-cron": "^3.0.2"
+  }
+}
