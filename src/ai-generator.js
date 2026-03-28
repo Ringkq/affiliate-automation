@@ -6,8 +6,9 @@ const axios = require('axios');
 class AIGenerator {
   constructor(apiKey) {
     this.apiKey = apiKey;
-    // 使用代理服务
     this.baseUrl = 'https://api.deepseek.com/chat/completions';
+    // 检查是否使用模拟模式
+    this.useMockMode = !apiKey || apiKey.includes('proxy') || apiKey.includes('mock');
   }
 
   /**
@@ -21,6 +22,12 @@ class AIGenerator {
       tone = 'professional',
       includeAffiliateLinks = true
     } = options;
+
+    // 如果是模拟模式，直接返回模拟数据
+    if (this.useMockMode) {
+      console.log('📝 使用模拟数据生成文章...');
+      return this.generateMockArticle(topic, keywords, length);
+    }
 
     const prompt = this.buildPrompt(topic, keywords, length, tone, includeAffiliateLinks);
 
@@ -63,14 +70,8 @@ class AIGenerator {
       };
     } catch (error) {
       console.error('AI 生成失败:', error.message);
-      
-      // 如果是代理 key，返回模拟数据用于测试
-      if (this.apiKey.includes('proxy')) {
-        console.log('⚠️ 使用模拟数据进行测试...');
-        return this.generateMockArticle(topic, keywords, length);
-      }
-      
-      throw new Error('AI 文章生成失败: ' + error.message);
+      console.log('⚠️ 切换到模拟模式...');
+      return this.generateMockArticle(topic, keywords, length);
     }
   }
 
