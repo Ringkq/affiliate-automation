@@ -194,7 +194,6 @@ class Publisher {
     results.push(await this.saveToFile(article));
 
     // 发布到各个平台
-    results.push(await this.publishToMedium(article));
     results.push(await this.publishToDevTo(article));
     results.push(await this.publishToHashnode(article));
 
