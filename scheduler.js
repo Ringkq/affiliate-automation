@@ -9,16 +9,16 @@ class ScheduledTasks {
   constructor() {
     this.automation = new AffiliateAutomation();
     this.topics = [
-      '如何使用 Hostinger 建立个人博客',
-      'Udemy 在线课程学习指南',
-      '2026 年最佳虚拟主机对比',
-      '如何开始自由职业生涯',
-      '内容营销完全指南',
-      '网站 SEO 优化技巧',
-      '如何选择合适的域名',
-      '建站新手完全指南',
-      '如何提高网站转化率',
-      '电子商务平台对比'
+      'Best Web Hosting Providers in 2026 - Complete Comparison',
+      'How to Start a Blog with Hostinger in 2026',
+      'Udemy vs Coursera vs Skillshare - Best Online Learning Platform',
+      'How to Make Money Online as a Freelancer in 2026',
+      'Complete Guide to Content Marketing Strategies',
+      'SEO Tips for Beginners - Ultimate Guide 2026',
+      'How to Choose the Perfect Domain Name in 2026',
+      'Step by Step Guide to Building Your First Website',
+      'How to Increase Your Website Conversion Rate',
+      'E-commerce Platforms Comparison 2026 - Which One is Best'
     ];
   }
 
@@ -73,16 +73,16 @@ class ScheduledTasks {
    */
   extractKeywords(topic) {
     const keywordMap = {
-      'Hostinger': ['hostinger', '博客', '建站', '虚拟主机'],
-      'Udemy': ['udemy', '在线课程', '学习', '教育'],
-      '虚拟主机': ['虚拟主机', '主机', '建站', '服务器'],
-      '自由职业': ['自由职业', '远程工作', '兼职', '创业'],
-      '内容营销': ['内容营销', '营销', '推广', '品牌'],
-      'SEO': ['seo', '搜索引擎', '优化', '排名'],
-      '域名': ['域名', '网址', '建站', '注册'],
-      '建站': ['建站', '网站', '博客', '平台'],
-      '转化率': ['转化率', '销售', '优化', '用户'],
-      '电子商务': ['电商', '在线商城', '购物', '销售']
+      'Hostinger': ['hostinger', 'web hosting', 'blog', 'website'],
+      'Udemy': ['udemy', 'online course', 'learning', 'education'],
+      'Coursera': ['coursera', 'online course', 'certification', 'learning'],
+      'Freelancer': ['freelancer', 'remote work', 'online business', 'income'],
+      'Content Marketing': ['content marketing', 'digital marketing', 'seo', 'traffic'],
+      'SEO': ['seo', 'search engine', 'ranking', 'optimization'],
+      'Domain': ['domain name', 'domain', 'website', 'branding'],
+      'Website': ['website', 'blog', 'hosting', 'web design'],
+      'Conversion Rate': ['conversion rate', 'sales', 'optimization', 'marketing'],
+      'E-commerce': ['e-commerce', 'online store', 'shopify', 'sales']
     };
 
     for (const [key, keywords] of Object.entries(keywordMap)) {
@@ -91,7 +91,7 @@ class ScheduledTasks {
       }
     }
 
-    return ['文章', '内容', '教程', '指南'];
+    return ['guide', 'tutorial', 'tips', '2026'];
   }
 }
 
