@@ -63,14 +63,28 @@ class Publisher {
     }
 
     try {
+      // 清理标题，移除特殊字符
+      const cleanTitle = article.title.replace(/[^\w\s\-\:]/g, '').substring(0, 100);
+      
+      // 移除 AdSense 脚本（Dev.to 不允许内联脚本）
+      let cleanContent = article.content
+        .replace(/<script[\s\S]*?<\/script>/gi, '')
+        .replace(/<!--[\s\S]*?-->/g, '');
+      
+      // 移除声明部分
+      cleanContent = cleanContent.replace(/<blockquote>[\s\S]*?<\/blockquote>/gi, '');
+      
       const response = await axios.post(
         'https://dev.to/api/articles',
         {
           article: {
-            title: article.title,
-            body_markdown: article.content,
-            tags: article.keywords || [],
-            published: false
+            title: cleanTitle,
+            body_markdown: cleanContent,
+            tags: (article.keywords || []).slice(0, 4),
+            published: true,
+            series: null,
+            canonical_url: null,
+            description: article.title.substring(0, 200)
           }
         },
         {
@@ -88,11 +102,11 @@ class Publisher {
         status: 'success'
       };
     } catch (error) {
-      console.error('❌ Dev.to 发布失败:', error.message);
+      console.error('❌ Dev.to 发布失败:', error.response?.data || error.message);
       return {
         platform: 'devto',
         status: 'failed',
-        error: error.message
+        error: error.response?.data || error.message
       };
     }
   }

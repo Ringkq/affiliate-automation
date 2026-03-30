@@ -79,45 +79,73 @@ class AIGenerator {
    * 生成模拟文章（用于测试）
    */
   generateMockArticle(topic, keywords, length) {
-    const mockContent = `# ${topic}
+    // 清理主题，去除特殊字符
+    const cleanTopic = topic.replace(/[^\w\s\-\:]/g, '').trim();
+    
+    const mockContent = `# ${cleanTopic}
 
-## 引言
+## Introduction
 
-${topic}是一个重要的话题。本文将为你详细介绍${topic}的相关知识。
+${cleanTopic} is an important topic in today's digital landscape. In this comprehensive guide, we will explore everything you need to know about ${cleanTopic}.
 
-## 第一部分：基础概念
+## Section 1: Key Concepts
 
-${topic}的基础概念包括以下几个方面：
+Understanding ${cleanTopic} requires familiarity with several fundamental concepts:
 
-- 定义和特点
-- 历史背景
-- 现状分析
+- Definition and core principles
+- Historical background and evolution
+- Current market trends
+- Best practices for implementation
 
-## 第二部分：实践应用
+## Section 2: Practical Applications
 
-在实际应用中，${topic}有以下几个关键点：
+When it comes to practical applications, ${cleanTopic} offers several key benefits:
 
-- 应用场景
-- 最佳实践
-- 常见问题
+- Real-world use cases
+- Industry-specific solutions
+- Performance optimization strategies
+- Common challenges and how to overcome them
 
-## 第三部分：深入分析
+## Section 3: In-Depth Analysis
 
-让我们更深入地分析${topic}：
+Let's dive deeper into the analysis of ${cleanTopic}:
 
-- 优势分析
-- 劣势分析
-- 改进方向
+- Advantages and disadvantages
+- Cost-benefit considerations
+- Implementation strategies
+- Future outlook and predictions
 
-## 第四部分：推荐产品
+## Section 4: Recommended Solutions
 
-在选择${topic}相关产品时，我推荐以下几个：
+When choosing the right solution for ${cleanTopic}, here are our top recommendations:
+
+### 1. Hostinger Web Hosting
+Professional hosting with excellent performance and affordable pricing. Perfect for beginners and professionals alike.
 
 [AFFILIATE_LINK]
 
-## 结论
+### 2. Online Learning Platforms
+Enhance your skills with comprehensive courses on web development, marketing, and business.
 
-总结来说，${topic}是一个值得关注的领域。希望本文能帮助你更好地理解${topic}。`;
+[AFFILIATE_LINK]
+
+### 3. Professional Tools
+Streamline your workflow with premium tools designed for efficiency and productivity.
+
+[AFFILIATE_LINK]
+
+## Conclusion
+
+In summary, ${cleanTopic} represents a significant opportunity for growth and success. Whether you're just starting out or looking to improve your existing strategy, this guide provides the foundation you need.
+
+Remember to implement the best practices discussed here and continuously monitor your progress for optimal results.
+
+---
+
+**Author**: Tech Writer  
+**Published**: ${new Date().toLocaleDateString()}
+
+> **Disclosure**: This article contains affiliate links. If you purchase through these links, I may earn a commission at no additional cost to you.`;
 
     return {
       title: topic,
